@@ -1,0 +1,19 @@
+<div id="timestamp">December 12, 2009 6:00 pm GMT</div>
+<script type="text/javascript">
+    var timestamp = document.getElementById('timestamp'),
+        t         = new Date(timestamp.innerHTML),
+        hours     = t.getHours(), 
+        min       = t.getMinutes() + '', 
+        pm        = false,
+        months    = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+    if(hours > 11){
+       hours = hours - 12;
+       pm = true;
+    }
+
+    if(hours == 0) hours = 12;
+    if(min.length == 1) min = '0' + min;
+
+    timestamp.innerHTML = months[t.getMonth()] + ' ' + t.getDate() + ', ' + t.getFullYear() + ' ' + hours + ':' + min + ' ' + (pm ? 'pm' : 'am');
+</script>
